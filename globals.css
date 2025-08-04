@@ -1,5 +1,23 @@
 /* app/globals.css */
 
+/* Определяем CSS-переменные */
+:root {
+  --border: 0 0% 90%;
+}
+
+@tailwind base;
+@tailwind components;
+
+@layer utilities {
+  .border-border {
+    --tw-border-opacity: 1;
+    border-color: hsl(var(--border) / var(--tw-border-opacity));
+  }
+}
+
+@tailwind utilities;
+
+
 /* 1) Определяем CSS-переменные до всех @tailwind-директив */
 :root {
   /* hue saturation lightness */
