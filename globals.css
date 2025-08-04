@@ -3,6 +3,10 @@
   --border: 0 0% 90%;
 }
 
+@tailwind base;
+@tailwind components;
+
+
 /* app/globals.css */
 
 /* 1) Импортируем ядро Tailwind */
@@ -11,3 +15,14 @@
 /* 2) Указываем путь к вашему конфигу */
 @config "/tailwind.config.js";
 
+/* …после @tailwind base и @tailwind components */
+@layer utilities {
+  /* border-border: цвет из переменной --border */
+  .border-border {
+    /* если вы хотите поддерживать opacity: */
+    --tw-border-opacity: 1;
+    border-color: hsl(var(--border) / var(--tw-border-opacity));
+  }
+}
+
+@tailwind utilities;
