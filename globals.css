@@ -1,22 +1,20 @@
-/* app/globals.css */
-
-/* 1) Определяем CSS-переменные перед подключением Tailwind */
-:root {
-  --border: 0 0% 90%; /* hue saturation lightness */
-}
-
-/* 2) Подключаем базовые стили и компоненты Tailwind */
 @tailwind base;
 @tailwind components;
+@tailwind utilities;
 
-/* 3) Определяем свою утилиту .border-border */
-@layer utilities {
-  .border-border {
-    /* Позволяет использовать /opacity-утилиты */
-    --tw-border-opacity: 1;
-    border-color: hsl(var(--border) / var(--tw-border-opacity));
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 47.4% 11.2%;
+    --border: 214.3 31.8% 91.4%; /* ADD THIS */
+    /* Add other required variables */
+  }
+  
+  * {
+    @apply border-border; /* Now valid */
+  }
+  
+  body {
+    @apply bg-background text-foreground;
   }
 }
-
-/* 4) Подключаем все стандартные утилиты Tailwind */
-@tailwind utilities;
