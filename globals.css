@@ -1,28 +1,24 @@
-/* Определяем переменные до всех @tailwind-правил */
+/* app/globals.css */
+
+/* 1. CSS-переменные для цветов (должны идти до всех @tailwind-директив) */
 :root {
-  --border: 0 0% 90%;
+  --border: 0 0% 90%; /* hue saturation lightness */
 }
 
+/* 2. Подключаем базовые стили и компоненты */
 @tailwind base;
 @tailwind components;
 
-
-/* app/globals.css */
-
-/* 1) Импортируем ядро Tailwind */
-@import "tailwindcss";
-
-/* 2) Указываем путь к вашему конфигу */
-@config "/tailwind.config.js";
-
-/* …после @tailwind base и @tailwind components */
+/* 3. Добавляем свою утилиту в слой utilities */
 @layer utilities {
-  /* border-border: цвет из переменной --border */
+  /* теперь .border-border будет существовать */
   .border-border {
-    /* если вы хотите поддерживать opacity: */
+    /* задаём opacity-переменную, чтобы можно было использовать /opacity */
     --tw-border-opacity: 1;
+    /* используем CSS-переменную --border */
     border-color: hsl(var(--border) / var(--tw-border-opacity));
   }
 }
 
+/* 4. Подключаем остальные утилиты Tailwind */
 @tailwind utilities;
