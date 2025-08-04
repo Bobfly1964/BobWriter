@@ -7,23 +7,7 @@ module.exports = {
   ],
   theme: {
     extend: {
-      /* ... */
-    }
-  },
- 
-
-  content: [
-    "./app/**/*.{js,ts,jsx,tsx}",
-    "./components/**/*.{js,ts,jsx,tsx}"
-  ],
-  theme: {
-    extend: {
-      colors: {
-        // если используете CSS-переменную:
-        border: "hsl(var(--border))",
-        // или жёстко:
-        // border: "#e5e7eb",
-      }
+      /* Здесь можно оставить другие ваши расширения */
     }
   },
   plugins: []
