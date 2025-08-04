@@ -1,24 +1,23 @@
 /* app/globals.css */
 
-/* 1. CSS-переменные для цветов (должны идти до всех @tailwind-директив) */
+/* 1) Определяем CSS-переменные до всех @tailwind-директив */
 :root {
-  --border: 0 0% 90%; /* hue saturation lightness */
+  /* hue saturation lightness */
+  --border: 0 0% 90%;
 }
 
-/* 2. Подключаем базовые стили и компоненты */
+/* 2) Подключаем базовые стили и компоненты Tailwind */
 @tailwind base;
 @tailwind components;
 
-/* 3. Добавляем свою утилиту в слой utilities */
+/* 3) Добавляем кастомную утилиту .border-border в слой utilities */
 @layer utilities {
-  /* теперь .border-border будет существовать */
   .border-border {
-    /* задаём opacity-переменную, чтобы можно было использовать /opacity */
+    /* Опционально: поддержка opacity-утилит */
     --tw-border-opacity: 1;
-    /* используем CSS-переменную --border */
     border-color: hsl(var(--border) / var(--tw-border-opacity));
   }
 }
 
-/* 4. Подключаем остальные утилиты Tailwind */
+/* 4) Подключаем все остальные утилиты Tailwind */
 @tailwind utilities;
